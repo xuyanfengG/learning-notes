@@ -2,21 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>阿肚笔记</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <meta name="description" content="阿肚笔记">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css"> -->
+  <!-- Theme: Simple Dark -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+
+  <!-- 谷歌站点收录 -->
+  <!-- <meta name="google-site-verification" content="qTFCf1hJ275saQ7H1kin5t2DVpznBKAj0Gi50XMOVMo" /> -->
+  <!-- 百度站点收录-->
+  <!-- <meta name="baidu-site-verification" content="SZyWUIzWiU" /> -->
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '',
-      repo: ''
+      name: '♍阿肚笔记',
+      repo: 'https://github.com/xuyanfengG/learning-notes.git',
+      coverpage: true, // 设置封面
+      onlyCover: true, // 只显示封面
+      loadSidebar: true, // 设置侧边栏
+      subMaxLevel: 2, //侧边栏显示当前页面的目录(标题等级)
+      //alias: {
+      //'/.*/_sidebar.md': '/_sidebar.md'
+      //},
+      loadNavbar: true, // 设置导航栏
+      search: {
+        placeholder: '搜索', // 搜索提示框文字， 支持本地化，例子在下面
+        noData: '找不到结果!',
+        depth: 3,                       // 搜索标题的最大程级, 1 - 6
+      },
+      count:{
+        countable:true,
+        fontsize:'0.9em',
+        color:'rgb(180,180,180)',
+        language:'chinese'
+      },
+      footer: {
+        copy: '<span>♥阿肚♥</span>',
+        auth: '<br/><span style="font-size:14px"> —— 种一颗树最好的时间是十年前，其次是现在🌲️</span>',
+        pre: '<hr/>',
+        style: 'text-align: center;',
+      },//添加页脚
+      tabs: {
+        persist    : true,      // default
+        sync       : true,      // default
+        theme      : 'classic', // default
+        tabComments: true,      // default
+        tabHeadings: true       // default
+      }
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 引入搜索模块 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/docsify/4.11.2/plugins/search.min.js"></script>
+  <!-- 添加一键拷贝代码-->
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <!-- mouse click -->
+  <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/click_heart.js"></script>
+  <!-- 字数统计功能 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!-- 图片缩小方法-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 回到顶部功能 -->
+  <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/jquery.goup.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $.goup({
+    trigger: 700,
+    bottomOffset: 20,
+    locationOffset: 8,
+    title: '',
+    titleAsText: true
+    });
+  });
+  </script>
+  <!-- tabs -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <!-- 添加代码高亮 -->
+  <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>  
+  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>  
+  <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
+  <!-- 添加页脚 -->
+  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/docsify-footer-enh.min.js"></script>
 </body>
 </html>
