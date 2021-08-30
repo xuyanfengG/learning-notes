@@ -1,4 +1,4 @@
-### 方式一：Docker打包镜像
+## 方式一：Docker打包镜像
 
 #### 1.Springboot项目编译成jar包上传至服务器
 
