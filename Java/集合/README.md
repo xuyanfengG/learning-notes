@@ -1,6 +1,6 @@
 > List、Set继承Collection，Map是独立的接口
 
-## 一、List
+## List
 
 > List遍历的两种方式：
 >
@@ -35,7 +35,7 @@
 
 <!-- tabs:end -->
 
-## 二、Set
+## Set
 
 >以下三者线程不安全，如果要使用线程安全可以Collections.synchronizedSet()
 
@@ -89,11 +89,11 @@ TreeSet实现了SortedSet接口，SortedSet实现了Set接口
 
 <!-- tabs:end -->
 
-## 三、Queue
+## Queue
 
 LinkedList既可以实现Queue接口,也可以实现List接口.只不过呢, LinkedList实现了Queue接口。Queue接口窄化了对LinkedList的方法的访问权限（即在方法中的参数类型如果是Queue时，就完全只能访问Queue接口所定义的方法 了，而不能直接访问 LinkedList的非Queue的方法），以使得只有恰当的方法才可以使用。
 
-## 四、Map
+## Map
 
 >map遍历的两种方式：
 >
@@ -174,7 +174,7 @@ IdentityHashMap使用 == 判断两个key是否相等，而HashMap使用的是equ
 
 <!-- tabs:end -->
 
-## 五、Iterator
+## Iterator
 
 #### 1. Iterator的fail-fast属性：
 
