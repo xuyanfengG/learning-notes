@@ -35,7 +35,7 @@ git add [参数]
 （5）提交到本地仓库
 
 ```shell
-git commit -m "描述“
+git commit -m "描述"
 ```
 
 （6）发布到远程仓库
