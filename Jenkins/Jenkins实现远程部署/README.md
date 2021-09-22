@@ -1,8 +1,4 @@
-#### 1.下载插件
-
-Publish Over SSH
-
-#### 2 系统配置
+#### 1 系统配置
 
 复制jenkins服务器生成的密钥，进行下面配置:
 
@@ -22,7 +18,7 @@ Publish Over SSH
 * UserName          服务器用户名
 * Remote Directory   传输文件的目录
 
-#### 3 构建项目配置
+#### 2 构建项目配置
 
 > Jenkins将文件传输到远程服务器上，并执行命令启动项目
 
@@ -35,7 +31,7 @@ Publish Over SSH
 * Remote directoty 发布的目录
 * Exec command   发布完执行的命令
 
-#### 4. 添加远程执行shell命令（exec command）
+#### 3. 添加远程执行shell命令（exec command）
 
 （1）执行jar包
 
@@ -76,6 +72,6 @@ export BUILD_ID=dontKillMe
 echo -e "starting tomcat~~"
 ```
 
-#### 5. 构建项目日志
+#### 4. 构建项目日志
 
 ![a4](./images/构建结果.png)

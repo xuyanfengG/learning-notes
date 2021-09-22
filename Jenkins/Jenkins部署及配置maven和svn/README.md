@@ -42,6 +42,12 @@ nohup java -jar xxx &
 * 邮箱：[xuyanfeng@sdrxhb.cn](http://xuyanfeng@sdrxhb.cn)
 * 实例地址：[http://10.0.1.200:8080](http://10.0.1.172:8080)
 
+安装以下插件：
+
+* Publish Over SSH
+* Maven Integration
+* subversion
+
 #### 6.配置全局环境变量
 
 【注：全局环境变量与jenkins在同一服务器】在服务器中安装JDK、maven

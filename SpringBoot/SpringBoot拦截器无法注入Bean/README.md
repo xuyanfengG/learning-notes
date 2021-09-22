@@ -17,8 +17,6 @@ RedisUtil redisUtil;
 
 ```
 /**
- * @author: 陌溪
- * @create: 2020-06-14-21:55
  */
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
@@ -54,8 +52,6 @@ import java.util.Locale;
 /**
  * SpringUtils
  *
- * @author: 陌溪
- * @create: 2020-03-05-9:30
  */
 @Component
 public class SpringUtils implements ApplicationContextAware {

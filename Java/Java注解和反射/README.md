@@ -41,8 +41,6 @@
 /**
  * 元注解
  *
- * @author: 陌溪
- * @create: 2020-03-28-22:57
  */
 @MyAnnotation
 public class MateAnnotationDemo {
@@ -77,8 +75,6 @@ public class MateAnnotationDemo {
 /**
  * 自定义注解
  *
- * @author: 陌溪
- * @create: 2020-03-28-22:57
  */
 public class MateAnnotationDemo {
 
@@ -177,8 +173,6 @@ tip：反射可以获取到private修饰的成员变量和方法
 /**
  * 反射Demo
  *
- * @author: 陌溪
- * @create: 2020-03-29-8:21
  */
 public class ReflectionDemo {
     public static void main(String[] args) throws ClassNotFoundException {
@@ -303,8 +297,6 @@ public final Class getClass()
 /**
  * Class类创建的方式
  *
- * @author: 陌溪
- * @create: 2020-03-29-9:56
  */
 class Person {
     public String name;
@@ -382,8 +374,6 @@ void
 /**
  * 获取Class的方式
  *
- * @author: 陌溪
- * @create: 2020-03-29-10:16
  */
 public class GetClassDemo {
     public static void main(String[] args) {
@@ -476,9 +466,6 @@ java内存分为以下三部分
 ```
 /**
  * 类加载流程
- *
- * @author: 陌溪
- * @create: 2020-03-29-11:02
  */
 class SuperA {
 
@@ -578,8 +565,6 @@ A类的无参构造方法
 /**
  * 类加载器的种类
  *
- * @author: 陌溪
- * @create: 2020-03-29-11:51
  */
 public class ClassLoaderTypeDemo {
     public static void main(String[] args) {
@@ -681,8 +666,6 @@ System.out.println(System.getProperty("java.class.path"));
 ```
 /**
  * 获取运行时类信息
- * @author: 陌溪
- * @create: 2020-03-29-12:13
  */
 public class GetClassInfo {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, NoSuchMethodException {
@@ -786,8 +769,6 @@ public class GetClassInfo {
 /**
  * 通过反射获取对象
  *
- * @author: 陌溪
- * @create: 2020-03-29-12:43
  */
 public class GetObjectByReflectionDemo {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
@@ -842,8 +823,6 @@ User{name='小白', id=0, age=10}
 /**
  * 反射性能
  *
- * @author: 陌溪
- * @create: 2020-03-29-14:55
  */
 public class ReflectionPerformance {
 
@@ -927,9 +906,6 @@ Java采用泛型擦除机制来引入泛型，Java中的泛型仅仅是给编译
 ```
 /**
  * 通过反射获取泛型
- *
- * @author: 陌溪
- * @create: 2020-03-29-15:15
  */
 public class GenericityDemo {
 
@@ -1014,8 +990,6 @@ ORM即为：Object relationship Mapping，对象关系映射
 /**
  * ORMDemo
  *
- * @author: 陌溪
- * @create: 2020-03-29-15:33
  */
 @TableKuang("db_student")
 class Student2 {

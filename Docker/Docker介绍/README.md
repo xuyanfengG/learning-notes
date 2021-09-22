@@ -83,3 +83,52 @@ Docker 使用 C/S 结构，即客户端/服务器体系结构。 Docker 客户�
 ![通信](./images/通信.png)
 
 这张图展示了 Docker 客户端、服务端和 Docker 仓库（即 Docker Hub 和 Docker Cloud ），默认情况下Docker 会在 Docker 中央仓库寻找镜像文件，这种利用仓库管理镜像的设计理念类似于 Git ，当然这个仓库是可以通过修改配置来指定的，甚至我们可以创建我们自己的私有仓库。
+
+#### 5.Linux下安装docker（centos7）
+
+（1）卸载原有docker
+
+```shell
+yum remove docker \
+>                   docker-client \
+>                   docker-client-latest \
+>                   docker-common \
+>                   docker-latest \
+>                   docker-latest-logrotate \
+>                   docker-logrotate \
+>                   docker-engine
+```
+
+（2）安装**yum-utils**
+
+```shell
+[root@instance-h9cwbr8m ~]# yum install -y yum-utils
+Loaded plugins: langpacks, versionlock
+Excluding 1 update due to versionlock (use "yum versionlock status" to show it)
+Package yum-utils-1.1.31-54.el7_8.noarch already installed and latest version
+Nothing to do
+[root@instance-h9cwbr8m ~]# 
+```
+
+（3）设置阿里云镜像仓库地址
+
+```shell
+ yum-config-manager \
+  --add-repo \
+   http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+```
+
+（4）安装
+
+```shell
+yum install docker-ce docker-ce-cli containerd.io
+```
+
+（5）启动
+
+```shell
+systemctl  start  docker
+```
+
+> 安装完后建议修改**docker默认文件路径**
+

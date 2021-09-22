@@ -49,8 +49,6 @@
     /**
      * WebSecurityConfig
      *
-     * @author: 陌溪
-     * @create: 2019-12-21-19:20
      */
     @Configuration
     @EnableWebSecurity

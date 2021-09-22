@@ -158,9 +158,6 @@ public class Main3 {
 ```java
 /**
  * 自定义锁
- *
- * @author: 陌溪
- * @create: 2020-07-17-17:06
  */
 public class MyLock implements Lock {
     private volatile int i = 0;

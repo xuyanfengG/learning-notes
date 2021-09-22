@@ -39,8 +39,6 @@ package com.moxi.interview.study.nowCode;
 /**
  * 希尔排序
  *
- * @author: 陌溪
- * @create: 2020-06-25-10:43
  */
 public class ShellSort_1 {
     public static int[] shellSort(int[] arrList) {

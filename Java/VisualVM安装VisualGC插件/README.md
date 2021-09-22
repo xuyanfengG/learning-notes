@@ -66,8 +66,6 @@ C:\Users\Administrator\AppData\Roaming\VisualVM
 /**
  * OOM测试
  *
- * @author: 陌溪
- * @create: 2020-07-06-21:11
  */
 public class OOMTest {
     public static void main(String[] args) throws InterruptedException {

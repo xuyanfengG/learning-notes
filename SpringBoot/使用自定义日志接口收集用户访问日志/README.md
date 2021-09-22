@@ -25,8 +25,6 @@
     /**
      * 日志记录、自定义注解
      *
-     * @author 陌溪
-     * @date 2020年2月27日08:55:02
      */
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
@@ -83,8 +81,9 @@
         DELETE_COMMENT("删除评论", "delete_comment"),
         REPORT_COMMENT("举报评论", "report_comment"),
         VISIT_CLASSIFY("点击分类", "visit_classify");
-    
-    
+
+
+​    
         private String content;
         private String behavior;
     
@@ -208,8 +207,9 @@
         public void setBehavior(String behavior) {
             this.behavior = behavior;
         }
-    
-    
+
+
+​    
     }
 
 编写AOP代码
@@ -255,8 +255,9 @@
     
         @Autowired
         private WebVisitService webVisitService;
-    
-    
+
+
+​    
         @Pointcut(value = "@annotation(bussinessLog)")
         public void pointcut(BussinessLog bussinessLog) {
     
@@ -315,7 +316,7 @@
             }
         }
     }
-    
+
 
 这里使用了一个AspectUtils工具类
 
@@ -332,8 +333,6 @@
     
     /**
      * AOP相关的工具
-     * @author 陌溪
-     * @date 2020年2月27日08:44:28
      */
     public enum AspectUtil {
     
@@ -385,7 +384,7 @@
             return bussinessName;
         }
     }
-    
+
 
 以及AOPUtils
 
@@ -414,8 +413,6 @@
     /**
      * 切面相关工具类
      *
-     * @author: 陌溪
-     * @create: 2020-01-21-12:34
      */
     @Slf4j
     public class AopUtils {
@@ -441,7 +438,7 @@
             return paramMap;
         }
     }
-    
+
 
 需要注意的是，我们在进行日志收集的时候，采用的是@Async注解修饰，也就是异步调用
 

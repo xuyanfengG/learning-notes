@@ -9,6 +9,7 @@
   * [Docker安装RabbitMQ](./Docker/Docker安装RabbitMQ/README.md)
   * [Docker搭建私有仓库](./Docker/Docker搭建私有仓库/README.md)
   * [Docker介绍](./Docker/Docker介绍/README.md)
+  * [Docker修改默认路径](./Docker/Docker修改默认路径/README.md)
 * **Elasticsearch**
   * [Elasticsearch安装及使用](./Elasticsearch/Elasticsearch安装及使用/README.md)
   * [Beats入门简介](./Elasticsearch/Beats入门简介/README.md)
@@ -46,6 +47,7 @@
   * [Jenkins配置用户权限](./Jenkins/Jenkins配置用户权限/README.md)
   * [Jenkins实现远程部署](./Jenkins/Jenkins实现远程部署/README.md)
   * [Jenkins修改部署项目的名称](./Jenkins/Jenkins修改部署项目的名称/README.md)
+  * [Jenkins实战](./Jenkins/Jenkins实战/README.md)
 * **Kafka**
   * [ConfluentKafka-JDBC连接器](./Kafka/ConfluentKafka-JDBC连接器/README.md)
   * [ConfluentKafka-KSQL自定义函数](./Kafka/ConfluentKafka-KSQL自定义函数/README.md)

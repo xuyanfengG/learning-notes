@@ -27,3 +27,9 @@ ENTRYPOINT ["java","-jar","/demo.jar"]
 docker build -t demo:1.0 .
 ```
 
+#### 4.运行镜像
+
+```shell
+docker run -itd -p 9080:9080 --name demo demo:1.0
+```
+
