@@ -124,7 +124,7 @@ curl http://10.0.1.200:5000/v2/_catalog|python -m json.tool
 docker pull [IP]:5000/busybox:20210526
 ```
 
-## 二、 安装第三方镜像仓库：Harbor
+## 二、安装第三方镜像仓库：Harbor
 
 > docker 官方提供的私有仓库 registry，用起来虽然简单 ，但在管理的功能上存在不足。 Harbor是一个用于存储和分发Docker镜像的企业级Registry服务器，harbor使用的是官方的docker registry(v2命名是distribution)服务去完成。harbor在docker distribution的基础上增加了一些安全、访问控制、管理的功能以满足企业对于镜像仓库的需求。
 >
@@ -190,16 +190,16 @@ proxy:
       - log
 ```
 
-#### 3.构建镜像
+#### 3.构建镜像（加上参数支持helm）
 
 ```shell
-./install.sh
+./install.sh --with-chartmuseum
 ```
 
 Harbor依赖的镜像及启动服务如下：
 
 ```shell
-[root@localhost harbor]# docker-compose ps
+$ docker-compose ps
        Name                     Command               State                                Ports                               
 ------------------------------------------------------------------------------------------------------------------------------
 harbor-adminserver   /harbor/harbor_adminserver       Up                                                                       
@@ -209,6 +209,10 @@ harbor-log           /bin/sh -c crond && rm -f  ...   Up      127.0.0.1:1514->51
 harbor-ui            /harbor/harbor_ui                Up                                                                       
 nginx                nginx -g daemon off;             Up      0.0.0.0:443->443/tcp, 0.0.0.0:4443->4443/tcp, 0.0.0.0:80->80/tcp 
 registry             /entrypoint.sh serve /etc/ ...   Up      5000/tcp 
+------------------------------------------------------------------------------------------------------------------------------
+# 重启
+$ docker-compose down
+$ docker-compose up -d
 ```
 
 #### 4.Harbor管理界面
@@ -237,7 +241,7 @@ systemctl restart docker
 （1）首先登录私有仓库，可以使用 admin 用户 ，也可以使用我们自己创建的具有上传权限的用户
 
 ```shell
-docker login docker login 192.168.0.63:9800
+docker login 192.168.0.63:9800
 Username: admin
 Password: 123456
 WARNING! Your password will be stored unencrypted in /root/.docker/config.json.

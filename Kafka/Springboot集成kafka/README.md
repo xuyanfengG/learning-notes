@@ -15,11 +15,12 @@ spring:
   kafka:
     bootstrap-servers: http://192.168.2.97:9092
     listener:
+      type: batch
       # concurrency = 主题分区数，即一个消费线程消费一个partition的数据
       concurrency: 3
       # MANUAL：当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后, 手动调用Acknowledgment.acknowledge()后提交
       # MANUAL_IMMEDIATE：手动调用Acknowledgment.acknowledge()后立即提交
-      ack-mode: MANUAL_IMMEDIATE
+      ack-mode: MANUAL
     consumer:
       # earliest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
       # latest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
@@ -41,57 +42,7 @@ spring:
       retries: 3
 ```
 
-### 3. 配置spring实例
-
-```java
-@Configuration
-@EnableConfigurationProperties({KafkaProperties.class})
-@EnableKafka
-@AllArgsConstructor
-public class KafkaConfig {
-    private final KafkaProperties kafkaProperties;
-
-    /**
-     * KafkaTemplate
-     * @return
-     */
-    @Bean
-    public KafkaTemplate<String, String> kafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
-    }
-
-    /**
-     * 生产者
-     * @return
-     */
-    @Bean
-    public ProducerFactory<String, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(kafkaProperties.buildProducerProperties());
-    }
-    /**
-     * 消费者
-     * @return
-     */
-    @Bean
-    public ConsumerFactory<String, String> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(kafkaProperties.buildConsumerProperties());
-    }
-    /**
-     * 监听
-     * @return
-     */
-    @Bean(name = "kafkaListenerContainerFactory")
-    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
-        factory.setConcurrency(3);
-        factory.setBatchListener(true);
-        factory.getContainerProperties().setPollTimeout(3000);
-        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
-        return factory;
-    }
-}
-```
+### 3.实例
 
 <!-- tabs:start -->
 

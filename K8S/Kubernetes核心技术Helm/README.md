@@ -64,7 +64,7 @@ V3之前
 
 ![image-20201118171956054](images/image-20201118171956054.png)
 
-## helm配置
+## helm配置（最好修改helm默认存储路径）
 
 首先我们需要去 [官网下载](https://helm.sh/docs/intro/quickstart/)
 
@@ -91,7 +91,8 @@ helm repo add stable http://mirror.azure.cn/kubernetes/charts
 helm repo add aliyun https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
 # 配置google源
 helm repo add google https://kubernetes-charts.storage.googleapis.com/
-
+# 配置Harbor私有仓库,chartrepo必须存在
+helm repo add harbor --username=admin --password=123456 http://192.168.0.63:9800/chartrepo/raone
 # 更新
 helm repo update
 ```
@@ -111,6 +112,60 @@ helm search repo stable
 
 ```bash
 helm repo remove stable
+```
+
+安装push插件，与harbor配合使用
+
+```shell
+# f安装
+# 方式一：在线安装
+helm plugin install https://github.com/chartmuseum/helm-push.git
+# 方式二：离线安装（准备离线安装包）
+# 查看helm环境变量
+helm env
+--------------------------------------------------
+HELM_REGISTRY_CONFIG="/root/.config/helm/registry.json"
+HELM_REPOSITORY_CACHE="/root/.cache/helm/repository"
+HELM_REPOSITORY_CONFIG="/root/.config/helm/repositories.yaml"
+HELM_NAMESPACE="default"
+HELM_KUBECONTEXT=""
+HELM_BIN="helm"
+HELM_DEBUG="false"
+HELM_PLUGINS="/root/.local/share/helm/plugins"
+--------------------------------------------------
+# 在HELM_PLUGINS路径下新建helm-push文件夹，将压缩包拷贝至文件夹内并解压
+
+# 查看已成功
+helm plugin list
+--------------------------------------------------
+NAME	VERSION	DESCRIPTION                      
+push	0.9.0  	Push chart package to ChartMuseum
+--------------------------------------------------
+
+# 打包，指定包版本
+helm package mychart --version 1.0.0
+--------------------------------------------------
+Successfully packaged chart and saved it to: /root/mychart-1.0.0.tgz
+--------------------------------------------------
+
+# 推送mychart
+helm push mychart-1.0.0.tgz harbor --username admin --password 123456
+--------------------------------------------------
+Pushing myapp-1.0.0.tgz to harbor_charts...
+Done.
+--------------------------------------------------
+
+# 更新
+helm repo update
+# 从远程仓库安装
+helm install mychart harbor/mychart --username admin --password 123456 --version 1.0.0
+# 从本地文件安装
+helm install mychart [chart文件夹名称]
+# 更新升级
+helm upgrade mychart [chart文件夹名称]
+helm upgrade mychart0 --set image.tag='latest' [chart文件夹名称]
+# 卸载
+helm uninstall mychart
 ```
 
 ## helm基本命令
@@ -137,7 +192,7 @@ helm search repo weave
 搜索完成后，使用命令进行安装
 
 ```bash
-helm install ui aliyun/weave-scope
+helm install ui stab/weave-scope
 ```
 
 可以通过下面命令，来下载yaml文件【如果】

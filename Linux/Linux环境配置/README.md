@@ -99,7 +99,7 @@ ssh-keygen
 ssh-copy-id -i /root/.ssh/id_rsa.pub [user]@[server]
 ```
 
-## 四、更换yum源
+## 四、更换yum源（/etc/yum.repos.d/）
 
 ### 1. centos6替换yum源
 

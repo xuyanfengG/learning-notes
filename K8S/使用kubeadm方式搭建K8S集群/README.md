@@ -51,6 +51,8 @@ systemctl disable firewalld
 # 关闭selinux
 # 永久关闭
 sed -i 's/enforcing/disabled/' /etc/selinux/config  
+# 或者编辑/etc/selinux/config
+# 将SELINUX=enforcing 改为SELINUX=disabled
 # 临时关闭
 setenforce 0  
 
@@ -126,7 +128,7 @@ systemctl start docker
 ```bash
 cat >> /etc/docker/daemon.json << EOF
 {
-  "registry-mirrors": ["https://b9pmyelo.mirror.aliyuncs.com"]
+ "registry-mirrors": ["https://b9pmyelo.mirror.aliyuncs.com"]
 }
 EOF
 ```
@@ -241,12 +243,6 @@ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-
 ```bash
 # 添加
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-
-##①首先下载v0.13.1-rc2-amd64 镜像
-##参考博客：https://www.cnblogs.com/pyxuexi/p/14288591.html
-##② 导入镜像，命令，，特别提示，3个机器都需要导入，3个机器都需要导入，3个机器都需要导入，3个机器都需要导入，重要的事情说3遍。不然抱错。如果没有操作，报错后，需要删除节点，重置，在导入镜像，重新加入才行。本地就是这样操作成功的！
-docker load < flanneld-v0.13.1-rc2-amd64.docker
-#####下载本地，替换将image: quay.io/coreos/flannel:v0.13.1-rc2 替换为 image: quay.io/coreos/flannel:v0.13.1-rc2-amd64
 
 # 查看状态 【kube-system是k8s中的最小单元】
 kubectl get pods -n kube-system

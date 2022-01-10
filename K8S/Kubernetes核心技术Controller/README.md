@@ -51,7 +51,7 @@ kubectl create deployment web --image=nginx --dry-run -o yaml > nginx.yaml
 
 然后输出一个yaml配置文件 `nginx.yml` ，配置文件如下所示
 
-```bash
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -113,7 +113,7 @@ kubectl expose deployment web --port=80 --type=NodePort --target-port=80 --name=
 
 得到的web1.yaml如下所示
 
-```bash
+```yaml
 apiVersion: v1
 kind: Service
 metadata:

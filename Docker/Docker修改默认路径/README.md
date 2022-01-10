@@ -24,6 +24,8 @@ docker info
 
 ```shell
 service docker stop
+#
+systemctl stop docker.socket
 ```
 
 #### 3.文件迁移

@@ -194,7 +194,7 @@ kubectl label node node1 env_role=prod
 
 ### 概述
 
-nodeSelector 和 NodeAffinity，都是Prod调度到某些节点上，属于Pod的属性，是在调度的时候实现的。
+nodeSelector 和 NodeAffinity，都是Pod调度到某些节点上，属于Pod的属性，是在调度的时候实现的。
 
 Taint 污点：节点不做普通分配调度，是节点属性
 
@@ -318,3 +318,10 @@ kubectl taint node k8snode1 env_role:NoSchedule-
 污点容忍就是某个节点可能被调度，也可能不被调度
 
 ![image-20201114210146123](images/image-20201114210146123.png)
+
+强制删除 pod:
+
+```shell
+kubectl delete pods <pod> --grace-period=0 --force
+```
+

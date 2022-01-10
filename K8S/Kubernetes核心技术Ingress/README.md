@@ -1,4 +1,4 @@
-# Kubernetes核心技术Ingress
+#  Kubernetes核心技术Ingress
 
 ## 前言
 
@@ -91,6 +91,8 @@ kubectl get pods -n ingress-nginx
 创建ingress规则文件，ingress-h.yaml
 
 ![image-20201118111700534](images/image-20201118111700534.png)
+
+host域名可不填写
 
 ### 添加域名访问规则
 
